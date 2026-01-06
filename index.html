@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portafolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            background: #111;
+            color: #fff;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        section {
+            margin: 40px auto;
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #111;
+            color: #fff;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        footer {
+            margin: 30px 0;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Portafolio</h1>
+
+    <!-- Carrusel Logos -->
+    <section>
+        <h2>Ejemplos Logo</h2>
+        <div class="carousel" data-carousel="0">
+            <img src="Logos/Logo.png" class="active">
+            <img src="Logos/Sin título-2.png">
+            <img src="Logos/Logo4.png">
+            <img src="Logos/1.png">
+        </div>
+        <div class="controls">
+            <button onclick="prevSlide(0)">◀</button>
+            <button onclick="nextSlide(0)">▶</button>
+        </div>
+    </section>
+
+    <!-- Carrusel Flyers -->
+    <section>
+        <h2>Ejemplos Flyer</h2>
+        <div class="carousel" data-carousel="1">
+            <img src="Flyer/1 (1).jpg" class="active">
+            <img src="Flyer/Instagram 2.png">
+            <img src="Flyer/Instagram.png">
+            <img src="Flyer/Texto.png">
+        </div>
+        <div class="controls">
+            <button onclick="prevSlide(1)">◀</button>
+            <button onclick="nextSlide(1)">▶</button>
+        </div>
+    </section>
+
+    <!-- Carrusel Otros -->
+    <section>
+        <h2>Otros Ejemplos</h2>
+        <div class="carousel" data-carousel="2">
+            <img src="Otros/Presentación.png" class="active">
+            <img src="Otros/Presentación 2.png">
+            <img src="Otros/Sin título.jpeg">
+        </div>
+        <div class="controls">
+            <button onclick="prevSlide(2)">◀</button>
+            <button onclick="nextSlide(2)">▶</button>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 - Portafolio
+    </footer>
+
+    <script>
+        const indexes = [0, 0, 0];
+    const intervalTime = 3000; // 3 segundos
+
+    function showSlide(carouselIndex) {
+        const carousel = document.querySelectorAll('.carousel')[carouselIndex];
+        const images = carousel.querySelectorAll('img');
+
+        images.forEach(img => {
+            img.classList.remove('active');
+            img.style.opacity = 0;
+        });
+
+        images[indexes[carouselIndex]].classList.add('active');
+        images[indexes[carouselIndex]].style.opacity = 1;
+    }
+
+    function nextSlide(carouselIndex) {
+        const carousel = document.querySelectorAll('.carousel')[carouselIndex];
+        const images = carousel.querySelectorAll('img');
+
+        indexes[carouselIndex] = (indexes[carouselIndex] + 1) % images.length;
+        showSlide(carouselIndex);
+    }
+
+    function prevSlide(carouselIndex) {
+        const carousel = document.querySelectorAll('.carousel')[carouselIndex];
+        const images = carousel.querySelectorAll('img');
+
+        indexes[carouselIndex] =
+            (indexes[carouselIndex] - 1 + images.length) % images.length;
+        showSlide(carouselIndex);
+    }
+
+    // 🔁 Auto-play
+    setInterval(() => {
+        nextSlide(0);
+        nextSlide(1);
+        nextSlide(2);
+    }, intervalTime);
+    </script>
+
+</body>
+</html>
