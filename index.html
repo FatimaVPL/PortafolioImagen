@@ -91,18 +91,43 @@
             position: relative;
             overflow: hidden;
             border-radius: 14px;
-            min-height: 260px;
+            min-height: var(--carousel-height, 420px);
+            padding: 16px;
+            display: grid;
+            place-items: center;
             background: rgba(0, 0, 0, 0.18);
             border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .carousel img {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: calc(var(--carousel-height, 420px) - 32px);
+            width: auto;
+            height: auto;
+            object-fit: contain;
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease;
+        }
+
+        .carousel--logos {
+            --carousel-height: clamp(300px, 52vw, 520px);
+        }
+
+        .carousel--logos img {
+            width: min(100%, 480px);
+        }
+
+        .carousel--flyers {
+            --carousel-height: clamp(460px, 78vh, 760px);
+        }
+
+        .carousel--otros {
+            --carousel-height: clamp(340px, 58vw, 620px);
+        }
+
+        .carousel--otros img {
+            width: min(100%, 900px);
         }
 
         .carousel img.active {
@@ -156,8 +181,24 @@
         }
 
         @media (max-width: 768px) {
+            .carousel {
+                padding: 12px;
+            }
+
             .carousel img {
-                height: 240px;
+                max-height: calc(var(--carousel-height, 420px) - 24px);
+            }
+
+            .carousel--logos {
+                --carousel-height: clamp(260px, 78vw, 420px);
+            }
+
+            .carousel--flyers {
+                --carousel-height: clamp(430px, 78vh, 640px);
+            }
+
+            .carousel--otros {
+                --carousel-height: clamp(320px, 72vw, 500px);
             }
 
             header.hero {
@@ -182,7 +223,7 @@
         <!-- Carrusel Logos -->
         <section>
             <h2>Ejemplos de logos</h2>
-            <div class="carousel" data-carousel="0">
+            <div class="carousel carousel--logos" data-carousel="0">
                 <img src="Logos/Logo.png" class="active" alt="Logo ejemplo 1">
                 <img src="Logos/Sin título-2.png" alt="Logo ejemplo 2">
                 <img src="Logos/Logo4.png" alt="Logo ejemplo 3">
@@ -198,7 +239,7 @@
         <!-- Carrusel Flyers -->
         <section>
             <h2>Ejemplos de flyers</h2>
-            <div class="carousel" data-carousel="1">
+            <div class="carousel carousel--flyers" data-carousel="1">
                 <img src="Flyer/1 (1).jpg" class="active" alt="Flyer ejemplo 1">
                 <img src="Flyer/Instagram 2.png" alt="Flyer ejemplo 2">
                 <img src="Flyer/Instagram.png" alt="Flyer ejemplo 3">
@@ -213,7 +254,7 @@
         <!-- Carrusel Otros -->
         <section>
             <h2>Otros ejemplos</h2>
-            <div class="carousel" data-carousel="2">
+            <div class="carousel carousel--otros" data-carousel="2">
                 <img src="Otros/Presentación.png" class="active" alt="Ejemplo presentación 1">
                 <img src="Otros/Presentación 2.png" alt="Ejemplo presentación 2">
                 <img src="Otros/Sin título.jpeg" alt="Ejemplo presentación 3">
