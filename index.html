@@ -32,6 +32,41 @@
             scroll-behavior: smooth;
         }
 
+        .glass-nav {
+            position: sticky;
+            top: 16px;
+            z-index: 10;
+            width: min(520px, calc(100% - 32px));
+            margin: 16px auto 0;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .glass-nav a {
+            padding: 10px 16px;
+            border-radius: 999px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .glass-nav a:hover,
+        .glass-nav a:focus-visible {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
         header.hero {
             text-align: center;
             padding: 80px 20px 60px;
@@ -66,6 +101,7 @@
             border: 1px solid var(--border);
             box-shadow: 0 16px 30px var(--shadow);
             backdrop-filter: blur(14px);
+            scroll-margin-top: 96px;
         }
 
         section h2 {
@@ -181,6 +217,17 @@
         }
 
         @media (max-width: 768px) {
+            .glass-nav {
+                top: 10px;
+                width: min(420px, calc(100% - 24px));
+                gap: 4px;
+            }
+
+            .glass-nav a {
+                padding: 9px 11px;
+                font-size: 0.88rem;
+            }
+
             .carousel {
                 padding: 12px;
             }
@@ -213,15 +260,21 @@
 </head>
 <body>
 
+    <nav class="glass-nav" aria-label="Secciones del portafolio">
+        <a href="#logos">Logos</a>
+        <a href="#flyers">Flyers</a>
+        <a href="#otros">Otros</a>
+    </nav>
+
     <header class="hero">
-        <span class="hero-accent">Portafolio UX/UI</span>
+        <span class="hero-accent">Portafolio Diseños</span>
         <h1>Diseños publicitarios: Fatima</h1>
         <p>Explora ejemplos de logos, flyers y otros diseños. Más de 3 años de experiencia, trabajando para pequeñas y medianas empresas.</p>
     </header>
 
     <main>
         <!-- Carrusel Logos -->
-        <section>
+        <section id="logos">
             <h2>Ejemplos de logos</h2>
             <div class="carousel carousel--logos" data-carousel="0">
                 <img src="Logos/Logo.png" class="active" alt="Logo ejemplo 1">
@@ -237,7 +290,7 @@
         </section>
 
         <!-- Carrusel Flyers -->
-        <section>
+        <section id="flyers">
             <h2>Ejemplos de flyers</h2>
             <div class="carousel carousel--flyers" data-carousel="1">
                 <img src="Flyer/1 (1).jpg" class="active" alt="Flyer ejemplo 1">
@@ -252,7 +305,7 @@
         </section>
 
         <!-- Carrusel Otros -->
-        <section>
+        <section id="otros">
             <h2>Otros ejemplos</h2>
             <div class="carousel carousel--otros" data-carousel="2">
                 <img src="Otros/Presentación.png" class="active" alt="Ejemplo presentación 1">
@@ -269,7 +322,7 @@
     </main>
 
     <footer>
-        © 2026 - Portafolio • Diseñado con estilo azul/púrpura y responsive
+        © 2026 - Portafolio Diseños Fatima. Todos los derechos reservados. 
     </footer>
 
     <script>
