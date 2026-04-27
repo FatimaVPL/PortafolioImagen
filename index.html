@@ -140,30 +140,7 @@
             outline: 2px solid rgba(155, 92, 255, 0.8);
             outline-offset: 3px;
         }
-
-        .modern-button {
-            background: linear-gradient(120deg, var(--accent), var(--accent-2));
-            color: white;
-            border: none;
-            padding: 14px 26px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 16px 30px rgba(26, 44, 113, 0.27);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .modern-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 22px 46px rgba(26, 44, 113, 0.3);
-        }
-
-        .modern-button:active {
-            transform: translateY(0);
-            box-shadow: 0 12px 20px rgba(26, 44, 113, 0.25);
-        }
-
+        
         .button-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -210,6 +187,7 @@
                 <img src="Logos/Sin título-2.png" alt="Logo ejemplo 2">
                 <img src="Logos/Logo4.png" alt="Logo ejemplo 3">
                 <img src="Logos/1.png" alt="Logo ejemplo 4">
+                <img src="Logos/Diseño sin título.png" alt="Logo ejemplo 4">
             </div>
             <div class="controls">
                 <button aria-label="Anterior" onclick="prevSlide(0)">◀</button>
@@ -239,22 +217,12 @@
                 <img src="Otros/Presentación.png" class="active" alt="Ejemplo presentación 1">
                 <img src="Otros/Presentación 2.png" alt="Ejemplo presentación 2">
                 <img src="Otros/Sin título.jpeg" alt="Ejemplo presentación 3">
+                <img src="Otros/Captura de pantalla 2023-04-05 103845.png" alt="Ejemplo presentación 3">
+                <img src="Otros/Historia Día de las Madres Álbum de Recortes Rosa.jpg" alt="Ejemplo presentación 4">
             </div>
             <div class="controls">
                 <button aria-label="Anterior" onclick="prevSlide(2)">◀</button>
                 <button aria-label="Siguiente" onclick="nextSlide(2)">▶</button>
-            </div>
-        </section>
-
-        <!-- Botones Modernos -->
-        <section>
-            <h2>Botones modernos</h2>
-            <div class="button-grid">
-                <button class="modern-button">Botón 1</button>
-                <button class="modern-button">Botón 2</button>
-                <button class="modern-button">Botón 3</button>
-                <button class="modern-button">Botón 4</button>
-                <button class="modern-button">Botón 5</button>
             </div>
         </section>
     </main>
